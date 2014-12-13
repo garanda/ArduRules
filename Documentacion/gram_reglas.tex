@@ -1,0 +1,153 @@
+\documentclass[a4,12pt]{article}
+
+\usepackage{hyperref}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{fancyvrb,fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{todonotes}
+
+
+%*********************** UTILIDAD **************************
+\makeatletter
+  \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \vspace*{\fill}
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+
+%*********************** FORMATO DE LISTADOS **************************
+\lstset{
+  basicstyle=\small,
+  keywordstyle=\bfseries,
+  % underlined bold black keywords
+  identifierstyle=, % nothing happens
+%  commentstyle=\color{white}, % white comments
+  stringstyle=\ttfamily, % typewriter type for strings
+  showstringspaces=false,
+  frame=single,
+	language=Java,
+	numbers=left,
+	numberstyle=\tiny,
+	stepnumber=1,
+	numbersep=5pt
+}
+
+
+%*********************** FORMATO DE PÁGINA **************************
+%\pagewidth      210mm
+\textwidth     16.5cm  % Anchura del texto 14.5 cm
+\hoffset         -1in
+\oddsidemargin    2.5cm  % Margen izquierdo 4 cm
+\evensidemargin 2.5cm
+
+%\pageheight     297mm
+\textheight      22cm  % Altura del texto 22 cm
+\voffset         -1.8in
+\topmargin        2cm  %antes 2.5%Margen superior
+\headheight       1cm
+
+% Usaremos cabeceras:
+
+%% Si el formato es report a una sola cara
+
+%\pagestyle{fancy}
+
+%\lhead{\leftmark}
+%\chead{}
+%\rhead{\bfseries \thepage}
+
+\cfoot{}
+
+%% Si el formato es book (a doble cara)
+
+%\fancyhead{}
+%\fancyhead[LO,RE]{\bfseries \nouppercase{\leftmark}}
+%\fancyhead[LE,RO]{\bfseries \thepage}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RE]{{\small  \nouppercase{\leftmark}}}
+\fancyhead[LO]{{\small  \nouppercase{\rightmark}}}
+\fancyhead[LE,RO]{\thepage}
+
+%\newtheorem{definition}[theorem]{Definition.}
+\newcommand{\implica}{\to}
+
+
+
+\author{}
+\title{Gramática para lenguaje basado en reglas}
+
+
+\pagestyle{plain}
+
+
+
+\begin{document}
+\maketitle
+
+\noindent
+\begin{tabular}{|lcl|}
+\hline
+Programa   & $\to$  &  Nombre Importacion Metodos Main Estados\\
+
+\hline
+Metodos & & Percepciones Acciones\\
+\hline
+Nombre   & $\to$  & ``PROGRAM'' cadena ``;'' \\
+\hline
+Importacion   & $\to$  &  ``IMPORT'' Lista ``;''\\
+   &  & \\
+   &  & \\
+   &  & \\
+   &  & \\
+   &  & \\
+\hline
+Percepciones   & $\to$  & Percepcion\\
+   & $\to$  & \\
+   & $\to$  & \\
+   & $\to$  & \\
+\end{tabular}
+
+
+\begin{lstlisting}
+
+
+
+ --> ()
+
+Percepcion --> "INPUT" string "(" Params ")" "{"  BLOQUE "}"
+
+
+Acciones --> "OUTPUT" string "(" Params ")" "{"  BLOQUE "}"
+
+BLOQUE --> (Instruccion)
+
+
+Reglas --> (Regla)*
+
+Regla --> Conjunciones "-->" Conjunciones
+
+Conjunciones --> (Token)*
+
+Token --> PalabraReservada
+				| String "(" Params ")"
+
+
+
+
+\end{lstlisting}
+
+
+
+
+
+
+
+\end{document}
